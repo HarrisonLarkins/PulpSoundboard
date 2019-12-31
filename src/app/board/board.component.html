@@ -1,2 +1,13 @@
+<!--
 <div><span>name: </span>{{soundbyte.name}}</div>
 <div><span>path: </span>{{soundbyte.path}}</div>
+-->
+
+
+<ul class="sounds">
+	<li *ngFor="let sound of sounds">
+		<button type="button" (click)="playAudio(sound)">{{sound.name}}</button><br />
+		<button type="button" (click)="toggleLoop(sound)">{{sound.loopText}}</button>
+	</li>
+
+</ul>
