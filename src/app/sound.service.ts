@@ -10,7 +10,9 @@ export class SoundService {
   constructor() { }
   
   play(soundbyte: Soundbyte){
-		soundbyte.audio = new Audio();
+		if(!soundbyte.audio){
+			soundbyte.audio = new Audio();
+		}		
 		soundbyte.audio.src = soundbyte.path;
 		soundbyte.audio.load();
 		soundbyte.audio.loop = soundbyte.loopSetting;
@@ -19,7 +21,9 @@ export class SoundService {
 	
 	toggleLoop(soundbyte: Soundbyte){
 		if(soundbyte.loopSetting == true) {
-			soundbyte.audio.pause();
+			if(soundbyte.audio){
+				soundbyte.audio.pause();	
+			}
 			soundbyte.loopSetting = false;
 			soundbyte.loopText = "Play Once";
 		}
