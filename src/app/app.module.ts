@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SoundComponent } from './sound/sound.component';
 import { BoardComponent } from './board/board.component';
+import { SoundService } from './sound.service';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import { BoardComponent } from './board/board.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [SoundService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Soundbyte } from '../soundbyte';
 import { SOUNDS } from '../sound-list';
+import { SoundService } from '../sound.service';
 
 @Component({
   selector: 'app-board',
@@ -12,6 +13,8 @@ export class BoardComponent implements OnInit {
 	
 	sounds = SOUNDS;
 	
+	
+	/**
 	audio = new Audio();
 	
 	playAudio(soundbyte: Soundbyte){
@@ -33,7 +36,7 @@ export class BoardComponent implements OnInit {
 			soundbyte.loopText = "Loop";
 		}
 	}
-	/**
+	
 	soundbyte: Soundbyte = {
 		name: 'phone',
 		path: '../../assets/phone.mp3'
@@ -49,7 +52,7 @@ export class BoardComponent implements OnInit {
 
 	**/
 
-  constructor() { }
+  constructor(private _soundService: SoundService) { }
 
   ngOnInit() {
 	  

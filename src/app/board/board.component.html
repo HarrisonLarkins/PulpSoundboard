@@ -6,8 +6,8 @@
 
 <ul class="sounds">
 	<li *ngFor="let sound of sounds">
-		<button type="button" (click)="playAudio(sound)">{{sound.name}}</button><br />
-		<button type="button" (click)="toggleLoop(sound)">{{sound.loopText}}</button>
+		<button type="button" (click)="this._soundService.play(sound)">{{sound.name}}</button><br />
+		<button type="button" (click)="this._soundService.toggleLoop(sound)">{{sound.loopText}}</button>
 	</li>
 
 </ul>
