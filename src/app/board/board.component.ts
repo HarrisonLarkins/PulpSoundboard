@@ -13,7 +13,13 @@ export class BoardComponent implements OnInit {
 	
 	sounds = SOUNDS;
 	
-	
+	stopAll(){
+		this.sounds.forEach(
+			function (sound){
+				sound.audio.pause();
+			}
+		);
+	}
 
   constructor(private _soundService: SoundService) { }
 

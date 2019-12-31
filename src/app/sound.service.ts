@@ -21,11 +21,12 @@ export class SoundService {
 	
 	toggleLoop(soundbyte: Soundbyte){
 		if(soundbyte.loopSetting == true) {
-			if(soundbyte.audio){
+			/**if(soundbyte.audio){
 				soundbyte.audio.pause();	
-			}
+			}**/
 			soundbyte.loopSetting = false;
 			soundbyte.loopText = "Play Once";
+
 		}
 		else {
 			soundbyte.loopSetting = true;
