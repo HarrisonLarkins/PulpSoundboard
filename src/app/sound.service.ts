@@ -32,5 +32,11 @@ export class SoundService {
 			soundbyte.loopText = "Loop";
 		}
 	}
+	
+	stop(soundbyte: Soundbyte){
+		if(soundbyte.audio) {
+			soundbyte.audio.pause();
+		}
+	}
  
 }

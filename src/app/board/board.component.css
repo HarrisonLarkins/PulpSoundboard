@@ -12,9 +12,10 @@
 
 button {
 	width: 100px;
+	margin-bottom: 10px;
 }
 
 .soundButton {
 	height: 100px;
-	margin-bottom: 10px;
+	
 }
