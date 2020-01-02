@@ -51,24 +51,31 @@ export class SoundService {
 	
 	//Runs every .5 seconds
 	fadeOut(soundbyte: Soundbyte) {
-		var startAmount = soundbyte.audio.volume;
 		
-		var freq = 250; //time between each cycle in ms		
-		var fadeTime = 2; //how long to fade in seconds
-		var numOfSteps = fadeTime / (freq/1000)
-		
-		var fadeAmount = startAmount / numOfSteps;
-		this.fade = setInterval(
-			function(){
-				if(soundbyte.audio.volume - fadeAmount >= 0){
-					soundbyte.audio.volume = soundbyte.audio.volume - fadeAmount;
-				}
-				else {
-					soundbyte.audio.volume = 0;
-					clearInterval(this.fade);
-				}
-			},
-		freq);
+		if(Array.isArray(soundbyte)){
+			soundbyte.forEach(elem => fadeOut(elem));
+		}
+		else{
+			var startAmount = soundbyte.audio.volume;
+			
+			var freq = 250; //time between each cycle in ms		
+			var fadeTime = 2; //how long to fade in seconds
+			var numOfSteps = fadeTime / (freq/1000)
+			
+			var fadeAmount = startAmount / numOfSteps;
+			this.fade = setInterval(
+				function(){
+					if(soundbyte.audio.volume - fadeAmount >= 0){
+						soundbyte.audio.volume = soundbyte.audio.volume - fadeAmount;
+					}
+					else {
+						soundbyte.audio.volume = 0;
+						clearInterval(this.fade);
+					}
+				},
+			freq);
+			
+		}
 	}
  
 }

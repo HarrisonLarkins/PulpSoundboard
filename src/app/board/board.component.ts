@@ -38,15 +38,7 @@ export class BoardComponent implements OnInit {
 	}**/
 	
 	fadeAll(){
-		this.sounds.forEach(
-			function (soundArr) {
-				soundArr.forEach(
-					function (sound) {
-						this._soundService.fadeAll(sound);
-					}
-				);
-			}
-		);
+		this._soundService.fadeOut(this.sounds);
 	}
 
   constructor(private _soundService: SoundService) { }
