@@ -49,10 +49,13 @@ export class SoundService {
 	}
 	
 	//Runs every .5 seconds
-	fadeOut(soundbyte: Soundbyte) {
+	fadeOut(soundbyte: Soundbyte) {			
 		
 		if(Array.isArray(soundbyte)){
-			soundbyte.forEach(elem => fadeOut(elem));
+			soundbyte.forEach(elem => this.fadeOut(elem));
+		}
+		else if(soundbyte.audio == null){			
+			return;
 		}
 		else{
 			var startAmount = soundbyte.audio.volume;
@@ -64,7 +67,7 @@ export class SoundService {
 			var fadeAmount = startAmount / numOfSteps;
 			var fade = setInterval(
 				function(){
-					console.log(soundbyte.audio.volume - fadeAmount);
+					//console.log(soundbyte.audio.volume - fadeAmount);
 					if(soundbyte.audio.volume - fadeAmount >= 0){
 						soundbyte.audio.volume = soundbyte.audio.volume - fadeAmount;
 					}
