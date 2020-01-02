@@ -46,15 +46,15 @@ export const ALARMS: Soundbyte[] = [
 	{
 		name: 'Small Alarm',
 		path: 'assets/alarm - small.mp3',
-		loopSetting: false,
-		loopText: "Play Once",
+		loopSetting: true,
+		loopText: "Loop",
 		audio: null
 	},
 	{
 		name: 'City Alarms',
 		path: 'assets/alarm - city.mp3',
-		loopSetting: false,
-		loopText: "Play Once",
+		loopSetting: true,
+		loopText: "Loop",
 		audio: null
 	}
 	
