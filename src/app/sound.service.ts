@@ -15,7 +15,7 @@ export class SoundService {
 		}		
 		soundbyte.audio.src = soundbyte.path;
 		soundbyte.audio.load();
-		soundbyte.audio.loop = soundbyte.loopSetting;
+		soundbyte.audio.loop = soundbyte.loopSetting;	
 		soundbyte.audio.play();
 	}
 	
@@ -37,6 +37,12 @@ export class SoundService {
 	stop(soundbyte: Soundbyte){
 		if(soundbyte.audio) {
 			soundbyte.audio.pause();
+		}
+	}
+	
+	stopAfterPlay(soundbyte: Soundbyte){
+		if(soundbyte.audio) {
+			soundbyte.audio.loop = false;
 		}
 	}
  

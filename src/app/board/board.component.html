@@ -17,6 +17,7 @@
 	<div class="soundDiv" *ngFor="let sound of sounds">
 		<button type="button" class="soundButton" (click)="this._soundService.play(sound)">{{sound.name}}</button><br />
 		<button type="button" (click)="this._soundService.toggleLoop(sound)">{{sound.loopText}}</button><br />
+		<button type="button" (click)="this._soundService.stopAfterPlay(sound)">Stop After Play</button><br />
 		<button type="button" (click)="this._soundService.stop(sound)">Stop</button>
 	</div>
 </div>

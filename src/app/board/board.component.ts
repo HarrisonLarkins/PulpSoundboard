@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Soundbyte } from '../soundbyte';
-import { SOUNDS } from '../sound-list';
+import { SOUNDS } from '../../assets/sound-list';
 import { SoundService } from '../sound.service';
 
 @Component({
