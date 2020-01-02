@@ -15,14 +15,29 @@ export class BoardComponent implements OnInit {
 	ones = ONES;
 	alarms = ALARMS;
 	
+	sounds = [this.weapons, this.ones, this.alarms];
 	
+	stopAll(){
+		this.sounds.forEach(
+			function (soundArr) {
+				soundArr.forEach(
+					function (sound) {
+						sound.audio.pause();
+					}
+				);
+			}
+		);
+	}
+	/**
 	stopAll(){
 		this.sounds.forEach(
 			function (sound){
 				sound.audio.pause();
 			}
 		);
-	}
+	}**/
+	
+	
 
   constructor(private _soundService: SoundService) { }
 
