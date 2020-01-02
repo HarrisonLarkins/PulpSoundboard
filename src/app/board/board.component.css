@@ -1,6 +1,7 @@
 .soundContainer {
 	display: inline-block;
 	padding: 10px;
+	float: left;
 }
 
 .soundDiv {
@@ -18,4 +19,8 @@ button {
 .soundButton {
 	height: 100px;
 	
+}
+
+.stopButton {
+	height: 50px;
 }

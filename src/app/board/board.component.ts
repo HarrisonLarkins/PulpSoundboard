@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Soundbyte } from '../soundbyte';
-import { SOUNDS } from '../../assets/sound-list';
+import { WEAPONS, ONES, ALARMS } from '../../assets/sound-list';
 import { SoundService } from '../sound.service';
 
 @Component({
@@ -11,7 +11,10 @@ import { SoundService } from '../sound.service';
 export class BoardComponent implements OnInit {
 	
 	
-	sounds = SOUNDS;
+	weapons = WEAPONS;
+	ones = ONES;
+	alarms = ALARMS;
+	
 	
 	stopAll(){
 		this.sounds.forEach(

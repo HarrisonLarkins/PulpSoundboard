@@ -13,8 +13,13 @@
 </ul>
 -->
 
+<div >
+		<button type="button" class="stopButton" (click)="stopAll()">Stop All</button>
+</div>
+
 <div class="soundContainer">
-	<div class="soundDiv" *ngFor="let sound of sounds">
+	<h1>Weapons</h1>
+	<div class="soundDiv" *ngFor="let sound of weapons">
 		<button type="button" class="soundButton" (click)="this._soundService.play(sound)">{{sound.name}}</button><br />
 		<button type="button" (click)="this._soundService.toggleLoop(sound)">{{sound.loopText}}</button><br />
 		<button type="button" (click)="this._soundService.stopAfterPlay(sound)">Stop After Play</button><br />
@@ -22,6 +27,27 @@
 	</div>
 </div>
 
-<div>
-		<button type="button" (click)="stopAll()">Stop All</button>
+
+<div class="soundContainer">
+	<h1>One Sounds</h1>
+	<div class="soundDiv" *ngFor="let sound of ones">
+		<button type="button" class="soundButton" (click)="this._soundService.play(sound)">{{sound.name}}</button><br />
+		<button type="button" (click)="this._soundService.toggleLoop(sound)">{{sound.loopText}}</button><br />
+		<button type="button" (click)="this._soundService.stopAfterPlay(sound)">Stop After Play</button><br />
+		<button type="button" (click)="this._soundService.stop(sound)">Stop</button>
+	</div>
 </div>
+
+
+
+<div class="soundContainer">
+	<h1>Alarms</h1>
+	<div class="soundDiv" *ngFor="let sound of alarms">
+		<button type="button" class="soundButton" (click)="this._soundService.play(sound)">{{sound.name}}</button><br />
+		<button type="button" (click)="this._soundService.toggleLoop(sound)">{{sound.loopText}}</button><br />
+		<button type="button" (click)="this._soundService.stopAfterPlay(sound)">Stop After Play</button><br />
+		<button type="button" (click)="this._soundService.stop(sound)">Stop</button>
+	</div>
+</div>
+
+

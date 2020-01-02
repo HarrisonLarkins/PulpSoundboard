@@ -15,7 +15,7 @@ export class SoundService {
 		}		
 		soundbyte.audio.src = soundbyte.path;
 		soundbyte.audio.load();
-		soundbyte.audio.loop = soundbyte.loopSetting;	
+		soundbyte.audio.loop = soundbyte.loopSetting;
 		soundbyte.audio.play();
 	}
 	
