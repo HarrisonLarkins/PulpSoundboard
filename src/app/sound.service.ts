@@ -7,7 +7,6 @@ import { Soundbyte} from './soundbyte';
 })
 export class SoundService {
 	
-	fade;
 
   constructor() { }
   
@@ -58,19 +57,20 @@ export class SoundService {
 		else{
 			var startAmount = soundbyte.audio.volume;
 			
-			var freq = 250; //time between each cycle in ms		
+			var freq = 100; //time between each cycle in ms		
 			var fadeTime = 2; //how long to fade in seconds
 			var numOfSteps = fadeTime / (freq/1000)
 			
 			var fadeAmount = startAmount / numOfSteps;
-			this.fade = setInterval(
+			var fade = setInterval(
 				function(){
+					console.log(soundbyte.audio.volume - fadeAmount);
 					if(soundbyte.audio.volume - fadeAmount >= 0){
 						soundbyte.audio.volume = soundbyte.audio.volume - fadeAmount;
 					}
 					else {
 						soundbyte.audio.volume = 0;
-						clearInterval(this.fade);
+						clearInterval(fade);
 					}
 				},
 			freq);
