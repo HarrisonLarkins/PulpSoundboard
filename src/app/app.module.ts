@@ -3,14 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SoundComponent } from './sound/sound.component';
 import { BoardComponent } from './board/board.component';
 import { SoundService } from './sound.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SoundComponent,
     BoardComponent
   ],
   imports: [
