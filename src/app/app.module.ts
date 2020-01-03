@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BoardComponent } from './board/board.component';
-import { SoundService } from './sound.service';
+import { BoardComponent } from '@app/components/board/board.component';
+import { SoundService } from '@app/services/sound.service';
 
 @NgModule({
   declarations: [

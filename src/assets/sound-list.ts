@@ -1,4 +1,4 @@
-import { Soundbyte} from '../app/soundbyte';
+import { Soundbyte} from '@app/classes/soundbyte';
 
 export const WEAPONS: Soundbyte[] = [	
 	{

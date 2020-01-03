@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Soundbyte} from './soundbyte';
+import { Soundbyte} from '@app/classes/soundbyte';
 
 
 @Injectable({

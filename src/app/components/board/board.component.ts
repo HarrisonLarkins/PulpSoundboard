@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Soundbyte } from '../soundbyte';
-import { WEAPONS, ONES, ALARMS } from 'src/assets/sound-list';
-import { SoundService } from '../sound.service';
+import { Soundbyte } from '@app/classes/soundbyte';
+import { WEAPONS, ONES, ALARMS } from 'assets/sound-list';
+import { SoundService } from '@app/services/sound.service';
 
 @Component({
   selector: 'app-board',
