@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Soundbyte} from '@app/classes/soundbyte';
+import { WEAPONS, ONES, ALARMS } from 'assets/sound-list';
 
 
 @Injectable({
@@ -9,6 +10,19 @@ export class SoundService {
 	
 
   constructor() { }
+  
+  
+	getWeapons(): Soundbyte[] {
+		return WEAPONS;
+	}
+	
+	getOnes(): Soundbyte[] {
+		return ONES;
+	}
+	
+	getAlarms(): Soundbyte[] {
+		return ALARMS;
+	}
   
     /**
 	creates audio object for audio property of soundbyte

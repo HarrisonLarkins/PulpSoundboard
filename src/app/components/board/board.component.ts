@@ -11,9 +11,21 @@ import { SoundService } from '@app/services/sound.service';
 export class BoardComponent implements OnInit {
 	
 	//expose imported arrays of soundbytes
-	weapons = WEAPONS;
-	ones = ONES;
-	alarms = ALARMS;
+	weapons: Soundbyte[];
+	ones: Soundbyte[];
+	alarms: Soundbyte[];
+	
+	getWeapons(): void {
+		this.weapons = this._soundService.getWeapons();
+	}
+	
+	getOnes(): void {
+		this.ones = this._soundService.getOnes();
+	}
+	
+	getAlarms(): void {
+		this.alarms = this._soundService.getAlarms();
+	}
 	
 	//create array of soundbyte arrays
 	sounds = [this.weapons, this.ones, this.alarms];
@@ -46,6 +58,10 @@ export class BoardComponent implements OnInit {
   constructor(private _soundService: SoundService) { }
 
   ngOnInit() {
+	  
+	  this.getWeapons();
+	  this.getOnes();
+	  this.getAlarms();
 	  
   }
 
