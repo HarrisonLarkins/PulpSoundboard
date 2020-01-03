@@ -1,3 +1,7 @@
+/**
+POSSIBLY NOT NEEDED
+**/
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({

@@ -10,22 +10,31 @@ export class SoundService {
 
   constructor() { }
   
+    /**
+	creates audio object for audio property of soundbyte
+	**/
 	play(soundbyte: Soundbyte){
+        
+		//create audio object for audio prop if it doesn't already exist
 		if(!soundbyte.audio){
 			soundbyte.audio = new Audio();
-		}		
+		}
+		
+		//initialize audio settings
 		soundbyte.audio.src = soundbyte.path;
 		soundbyte.audio.load();
 		soundbyte.audio.loop = soundbyte.loopSetting;
 		soundbyte.audio.volume = 1;
+		
+		//play audio
 		soundbyte.audio.play();
 	}
 	
+	/**
+	If soundbyte is set to loop, changes it to play once; If soundbyte is set to play once, changes it to loop
+	**/
 	toggleLoop(soundbyte: Soundbyte){
 		if(soundbyte.loopSetting == true) {
-			/**if(soundbyte.audio){
-				soundbyte.audio.pause();	
-			}**/
 			soundbyte.loopSetting = false;
 			soundbyte.loopText = "Play Once";
 
@@ -36,28 +45,41 @@ export class SoundService {
 		}
 	}
 	
+	/*
+	If the audio has been intialized, pauses (stops) audio immediately
+	*/
 	stop(soundbyte: Soundbyte){
 		if(soundbyte.audio) {
 			soundbyte.audio.pause();
 		}
 	}
 	
+	
+	/*
+	If the audio has been intialized, pauses (stops) audio after the clip finishes
+	*/
 	stopAfterPlay(soundbyte: Soundbyte){
 		if(soundbyte.audio) {
 			soundbyte.audio.loop = false;
 		}
 	}
 	
-	//Runs every .5 seconds
+	
 	//TO-DO: Better typechecking
+	/**
+	fades clip to 0 over time specified by fadeTime
+	**/
 	fadeOut(soundbyte: any) {			
 		
+		//if array is passed in (for stop all button) go one level deeper and run again
 		if(Array.isArray(soundbyte)){
 			soundbyte.forEach(elem => this.fadeOut(elem));
 		}
+		//if it hasn't been initialized, don't do anything
 		else if(soundbyte.audio == null){			
 			return;
-		}
+		}		
+		//fade out
 		else{
 			var startAmount = soundbyte.audio.volume;
 			
@@ -68,7 +90,6 @@ export class SoundService {
 			var fadeAmount = startAmount / numOfSteps;
 			var fade = setInterval(
 				function(){
-					//console.log(soundbyte.audio.volume - fadeAmount);
 					if(soundbyte.audio.volume - fadeAmount >= 0){
 						soundbyte.audio.volume = soundbyte.audio.volume - fadeAmount;
 					}
@@ -77,7 +98,7 @@ export class SoundService {
 						clearInterval(fade);
 					}
 				},
-			freq);
+				freq);
 			
 		}
 	}
