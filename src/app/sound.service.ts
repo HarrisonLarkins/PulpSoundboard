@@ -49,7 +49,8 @@ export class SoundService {
 	}
 	
 	//Runs every .5 seconds
-	fadeOut(soundbyte: Soundbyte) {			
+	//TO-DO: Better typechecking
+	fadeOut(soundbyte: any) {			
 		
 		if(Array.isArray(soundbyte)){
 			soundbyte.forEach(elem => this.fadeOut(elem));

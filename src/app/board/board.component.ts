@@ -28,14 +28,7 @@ export class BoardComponent implements OnInit {
 			}
 		);
 	}
-	/**
-	stopAll(){
-		this.sounds.forEach(
-			function (sound){
-				sound.audio.pause();
-			}
-		);
-	}**/
+	
 	
 	fadeAll(){
 		this._soundService.fadeOut(this.sounds);

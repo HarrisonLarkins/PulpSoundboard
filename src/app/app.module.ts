@@ -6,14 +6,12 @@ import { AppComponent } from './app.component';
 import { SoundComponent } from './sound/sound.component';
 import { BoardComponent } from './board/board.component';
 import { SoundService } from './sound.service';
-import { DetectsoundDirective } from './detectsound.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     SoundComponent,
-    BoardComponent,
-    DetectsoundDirective
+    BoardComponent
   ],
   imports: [
     BrowserModule,
