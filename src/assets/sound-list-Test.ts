@@ -11,7 +11,7 @@ const WEAPONS: Soundbyte[] = [
 		audio: null
 	},
 	{
-		name: 'classicshot',
+		name: 'Classic Shot',
 		path: 'assets/classicshot.mp3',
 		loopSetting: false,
 		loopText: "Play Once",

@@ -5,13 +5,26 @@
 		<button type="button" class="stopButton" (click)="this._soundService.fadeOutAll()">Fade All</button>
 </div>
 
-<div class="soundDiv" *ngFor="let category of allSounds">
+<div class="categoryDiv" *ngFor="let category of allSounds">
 	<p>{{category.name}}</p>
-	<div class="soundDiv" *ngFor="let sound of category.array">
-		<button type="button" class="soundButton" (click)="this._soundService.play(sound)">{{sound.name}}</button><br />
-		<button type="button" (click)="this._soundService.toggleLoop(sound)">{{sound.loopText}}</button><br />
-		<button type="button" (click)="this._soundService.stopAfterPlay(sound)">Stop After Play</button><br />
-		<button type="button" (click)="this._soundService.stop(sound)">Stop</button>
+	<div class="soundDiv"  *ngFor="let sound of category.array">
+		{{sound.name}}
+		<div>
+			<button type="button" (click)="this._soundService.play(sound)">Play</button>
+			<button type="button" (click)="this._soundService.stopAfterPlay(sound)">Stop After Play</button>
+		</div>
+		<div>
+			<button type="button" (click)="this._soundService.fadeOutOne(sound)">Fade</button>
+			<button type="button" (click)="this._soundService.stop(sound)">Stop</button>
+		</div>
+		<div>
+			Loop <input type="checkbox" [checked]="sound.loopSetting" (change)="this._soundService.toggleLoop(sound)" /> 
+		</div>
+		
+		
+		
+		
+		
 	</div>
 </div>
 

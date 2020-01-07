@@ -92,48 +92,11 @@ export class SoundService {
 		if(soundbyte.audio) {
 			soundbyte.audio.loop = false;
 		}
-	}
+	}	
 	
-	
-	//TO-DO: Better typechecking
 	/**
-	fades clip to 0 over time specified by fadeTime
-	
-	fadeOut(soundbyte: any) {			
-		
-		//if array is passed in (for stop all button) go one level deeper and run again
-		if(Array.isArray(soundbyte)){
-			soundbyte.forEach(elem => this.fadeOut(elem));
-		}
-		//if it hasn't been initialized, don't do anything
-		else if(soundbyte.audio == null){			
-			return;
-		}		
-		//fade out
-		else{
-			var startAmount = soundbyte.audio.volume;
-			
-			var freq = 100; //time between each cycle in ms		
-			var fadeTime = 2; //how long to fade in seconds
-			var numOfSteps = fadeTime / (freq/1000)
-			
-			var fadeAmount = startAmount / numOfSteps;
-			var fade = setInterval(
-				function(){
-					if(soundbyte.audio.volume - fadeAmount >= 0){
-						soundbyte.audio.volume = soundbyte.audio.volume - fadeAmount;
-					}
-					else {
-						soundbyte.audio.volume = 0;
-						clearInterval(fade);
-					}
-				},
-				freq);
-			
-		}
-	}
+	* Fade out passed in sound
 	**/
-	
 	fadeOutOne(soundbyte: Soundbyte) {
 		if(soundbyte.audio == null){			
 			return;
@@ -161,6 +124,9 @@ export class SoundService {
 		}		
 	}
 	
+	/**
+	* Fade out all sounds using fadeOutOne on each sound
+	**/
 	fadeOutAll() {
 		
 		//make other function accessible
