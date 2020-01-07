@@ -13,17 +13,7 @@ export class SoundService {
   constructor() { }
   
   
-	getWeapons(): Soundbyte[] {
-		return WEAPONS;
-	}
-	
-	getOnes(): Soundbyte[] {
-		return ONES;
-	}
-	
-	getAlarms(): Soundbyte[] {
-		return ALARMS;
-	}
+
 	
 	getAll(): SoundbyteArray[] {
 		return SOUNDS;
@@ -73,6 +63,27 @@ export class SoundService {
 		}
 	}
 	
+	/*
+	If the audio has been intialized, pauses (stops) audio immediately
+	*/
+	stopAll(soundbyteArray: SoundbyteArray){
+		
+		//make other function accessible
+		var stop = this.stop;
+		
+		//Iterate through all sounds and fade out those that have been initialized
+		for (var soundArray in SOUNDS) {
+			SOUNDS[soundArray].array.forEach(
+				function (sound) {
+					if(sound.audio) {
+						stop(sound);		
+					}
+							
+				}
+			);
+		}
+	}
+	
 	
 	/*
 	If the audio has been intialized, pauses (stops) audio after the clip finishes
@@ -87,7 +98,7 @@ export class SoundService {
 	//TO-DO: Better typechecking
 	/**
 	fades clip to 0 over time specified by fadeTime
-	**/
+	
 	fadeOut(soundbyte: any) {			
 		
 		//if array is passed in (for stop all button) go one level deeper and run again
@@ -119,6 +130,52 @@ export class SoundService {
 				},
 				freq);
 			
+		}
+	}
+	**/
+	
+	fadeOutOne(soundbyte: Soundbyte) {
+		if(soundbyte.audio == null){			
+			return;
+		}
+		else{
+			var startAmount = soundbyte.audio.volume;
+			
+			var freq = 100; //time between each cycle in ms		
+			var fadeTime = 2; //how long to fade in seconds
+			var numOfSteps = fadeTime / (freq/1000)
+			
+			var fadeAmount = startAmount / numOfSteps;
+			var fade = setInterval(
+				function(){
+					if(soundbyte.audio.volume - fadeAmount >= 0){
+						soundbyte.audio.volume = soundbyte.audio.volume - fadeAmount;
+					}
+					else {
+						soundbyte.audio.volume = 0;
+						clearInterval(fade);
+					}
+				},
+				freq);
+			
+		}		
+	}
+	
+	fadeOutAll() {
+		
+		//make other function accessible
+		var fadeOutOne = this.fadeOutOne;
+		
+		//Iterate through all sounds and fade out those that have been initialized
+		for (var soundArray in SOUNDS) {
+			SOUNDS[soundArray].array.forEach(
+				function (sound) {
+					if(sound.audio) {
+						fadeOutOne(sound);		
+					}
+							
+				}
+			);
 		}
 	}
  
