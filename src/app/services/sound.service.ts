@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Soundbyte} from '@app/classes/soundbyte';
 import { WEAPONS, ONES, ALARMS } from 'assets/sound-list';
-
+import { SOUNDS } from 'assets/sound-list-Test';
+import { SoundbyteArray} from '@app/classes/soundbytearray';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +23,10 @@ export class SoundService {
 	
 	getAlarms(): Soundbyte[] {
 		return ALARMS;
+	}
+	
+	getAll(): SoundbyteArray[] {
+		return SOUNDS;
 	}
   
     /**

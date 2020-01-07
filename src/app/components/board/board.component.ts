@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Soundbyte } from '@app/classes/soundbyte';
 import { WEAPONS, ONES, ALARMS } from 'assets/sound-list';
 import { SoundService } from '@app/services/sound.service';
+import { SoundbyteArray } from '@app/classes/soundbytearray';
 
 @Component({
   selector: 'app-board',
@@ -14,6 +15,12 @@ export class BoardComponent implements OnInit {
 	weapons: Soundbyte[];
 	ones: Soundbyte[];
 	alarms: Soundbyte[];
+	
+	allSounds: SoundbyteArray[];
+	
+	getAllSounds(): void {
+		this.allSounds = this._soundService.getAll();
+	}
 	
 	getWeapons(): void {
 		this.weapons = this._soundService.getWeapons();
@@ -62,6 +69,7 @@ export class BoardComponent implements OnInit {
 	  this.getWeapons();
 	  this.getOnes();
 	  this.getAlarms();
+	  this.getAllSounds();
 	  
   }
 

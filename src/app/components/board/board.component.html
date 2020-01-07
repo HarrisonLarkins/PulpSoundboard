@@ -5,8 +5,19 @@
 		<button type="button" class="stopButton" (click)="fadeAll()">Fade All</button>
 </div>
 
+<div class="soundDiv" *ngFor="let category of allSounds">
+	<p>{{category.name}}</p>
+	<div class="soundDiv" *ngFor="let sound of category.array">
+		<button type="button" class="soundButton" (click)="this._soundService.play(sound)">{{sound.name}}</button><br />
+		<button type="button" (click)="this._soundService.toggleLoop(sound)">{{sound.loopText}}</button><br />
+		<button type="button" (click)="this._soundService.stopAfterPlay(sound)">Stop After Play</button><br />
+		<button type="button" (click)="this._soundService.stop(sound)">Stop</button>
+	</div>
+</div>
+
+<!--
 <div class="soundContainer">
-	<!--<h1>Weapons</h1>-->
+	
 	<h1>Happy Sounds</h1>
 	<div class="soundDiv" *ngFor="let sound of weapons">
 		<button type="button" class="soundButton" (click)="this._soundService.play(sound)">{{sound.name}}</button><br />
@@ -39,5 +50,5 @@
 		<button type="button" (click)="this._soundService.fadeOut(sound)">Fade</button>
 	</div>
 </div>
-
+-->
 
