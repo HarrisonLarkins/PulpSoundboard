@@ -96,7 +96,7 @@ export class SoundService {
 	
 	/**
 	* Fade out passed in sound
-	**/
+	**
 	fadeOutOne(soundbyte: Soundbyte) {
 		if(soundbyte.audio == null){			
 			return;
@@ -122,22 +122,52 @@ export class SoundService {
 				freq);
 			
 		}		
-	}
+  }**/
+
+  /**
+* Fade out passed in sound
+**/
+  fadeAttr(soundbyte: Soundbyte, prop: string, finalValue: number, fadeTime: number) {
+    if (soundbyte.audio == null) {
+      return;
+    }
+    else {
+      var startAmount = soundbyte.audio[prop];
+
+      var freq = 100; //time between each cycle in ms		
+     // var fadeTime = 3; //how long to fade in seconds
+      var numOfSteps = fadeTime / (freq / 1000)
+
+      var fadeAmount = startAmount / numOfSteps;
+      var fade = setInterval(
+        function () {
+          if (soundbyte.audio[prop] - fadeAmount >= finalValue) {
+            soundbyte.audio[prop] = soundbyte.audio[prop] - fadeAmount;
+          }
+          else {
+            soundbyte.audio[prop] = finalValue;
+            clearInterval(fade);
+          }
+        },
+        freq);
+
+    }
+  }
 	
 	/**
 	* Fade out all sounds using fadeOutOne on each sound
 	**/
-	fadeOutAll() {
+  fadeOutAll(prop: string, finalValue: number, fadeTime: number) {
 		
 		//make other function accessible
-		var fadeOutOne = this.fadeOutOne;
+		var fadeAttr = this.fadeAttr;
 		
 		//Iterate through all sounds and fade out those that have been initialized
 		for (var soundArray in SOUNDS) {
 			SOUNDS[soundArray].array.forEach(
 				function (sound) {
 					if(sound.audio) {
-						fadeOutOne(sound);		
+						fadeAttr(sound, prop, finalValue, fadeTime);		
 					}
 							
 				}

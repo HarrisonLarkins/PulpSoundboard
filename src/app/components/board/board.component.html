@@ -2,7 +2,7 @@
 <!--Stop and fade buttons for any sounds playing-->
 <div >
 		<button type="button" class="stopButton" (click)="this._soundService.stopAll()">Stop All</button>
-		<button type="button" class="stopButton" (click)="this._soundService.fadeOutAll()">Fade All</button>
+		<button type="button" class="stopButton" (click)="this._soundService.fadeOutAll('volume', 0, 2)">Fade All</button>
 </div>
 
 <div class="categoryDiv" *ngFor="let category of allSounds">
@@ -14,11 +14,12 @@
 			<button type="button" (click)="this._soundService.stopAfterPlay(sound)">Stop After Play</button>
 		</div>
 		<div>
-			<button type="button" (click)="this._soundService.fadeOutOne(sound)">Fade</button>
+			<button type="button" (click)="this._soundService.fadeAttr(sound, 'volume', 0, 2)">Fade</button>
 			<button type="button" (click)="this._soundService.stop(sound)">Stop</button>
 		</div>
 		<div>
-			Loop <input type="checkbox" [checked]="sound.loopSetting" (change)="this._soundService.toggleLoop(sound)" /> 
+			Loop <input type="checkbox" [checked]="sound.loopSetting" (change)="this._soundService.toggleLoop(sound)" />
+			<button type="button" (click)="this._soundService.fadeAttr(sound, 'playbackRate', 0.4, 2)">Slo-mo</button>
 		</div>
 		
 		
