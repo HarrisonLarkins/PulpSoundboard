@@ -20,7 +20,7 @@ def processFile(root, name, writer):
 
 #outdir = ".\\src\\assets\\"
 outdir = "."
-outputfile = "sound-list-Test.ts"
+outputfile = "sound-list.ts"
 
 os.chdir(outdir)
 #files = os.listdir()
@@ -49,16 +49,8 @@ with open(outputfile, "w+") as outFile:
       outFile.write("\n\t},\n")
   outFile.write("];\n")
 
-os.chdir("..\\app\\services")
 
-with open("sound.service.ts", "r") as editFile:
-  soundFile = editFile.readlines()
 
-  newImport = "import { "
-  for sound in SOUNDS:
-    newImport = newImport + sound + ", "
-  newImport = newImport[:-2] + " } from 'assets/sound-list';\n"
-  soundFile[2] = newImport
 
-with open("sound.service.ts", "w") as editFile:
-  editFile.writelines(soundFile)
+
+

@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Soundbyte} from '@app/classes/soundbyte';
-import { ALARMS, ONES, SONGS, WEAPONS } from 'assets/sound-list';
-import { SOUNDS } from 'assets/sound-list-Test';
+import { SOUNDS } from 'assets/sound-list';
 import { SoundbyteArray} from '@app/classes/soundbytearray';
 
 @Injectable({

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Soundbyte } from '@app/classes/soundbyte';
-import { WEAPONS, ONES, ALARMS } from 'assets/sound-list';
+//import { WEAPONS, ONES, ALARMS } from 'assets/sound-list';
 import { SoundService } from '@app/services/sound.service';
 import { SoundbyteArray } from '@app/classes/soundbytearray';
 
