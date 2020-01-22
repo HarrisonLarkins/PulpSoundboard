@@ -18,7 +18,8 @@ def processFile(root, name, writer):
   writer.write("\t},\n")
 
 
-outdir = ".\\src\\assets\\"
+#outdir = ".\\src\\assets\\"
+outdir = "."
 outputfile = "sound-list-Test.ts"
 
 os.chdir(outdir)
@@ -29,6 +30,7 @@ os.chdir(outdir)
 
 
 startString = "import { Soundbyte} from '@app/classes/soundbyte';\nimport { SoundbyteArray } from '@app/classes/soundbytearray';\n\n"
+SOUNDS = []
 
 with open(outputfile, "w+") as outFile:
   outFile.write(startString)
@@ -43,5 +45,20 @@ with open(outputfile, "w+") as outFile:
     for dir in dirs:
       outFile.write("\t{\n")
       outFile.write("\t\tname: '%s',\n\t\tarray: %s" % (dir, dir.upper()))
+      SOUNDS.append(dir.upper())
       outFile.write("\n\t},\n")
   outFile.write("];\n")
+
+os.chdir("..\\app\\services")
+
+with open("sound.service.ts", "r") as editFile:
+  soundFile = editFile.readlines()
+
+  newImport = "import { "
+  for sound in SOUNDS:
+    newImport = newImport + sound + ", "
+  newImport = newImport[:-2] + " } from 'assets/sound-list';\n"
+  soundFile[2] = newImport
+
+with open("sound.service.ts", "w") as editFile:
+  editFile.writelines(soundFile)
