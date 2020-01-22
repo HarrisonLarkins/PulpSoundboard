@@ -35,6 +35,16 @@ const ONES: Soundbyte[] = [
 	},
 ];
 
+const TESTS: Soundbyte[] = [
+	{
+		name: 'Woah',
+		path: 'assets/Tests/Woah.mp3',
+		loopSetting: false,
+		loopText: "Play Oonce",
+		audio: null
+	},
+];
+
 const WEAPONS: Soundbyte[] = [
 	{
 		name: '380',
@@ -67,6 +77,10 @@ export const SOUNDS: SoundbyteArray[] = [
 	{
 		name: 'Ones',
 		array: ONES
+	},
+	{
+		name: 'Tests',
+		array: TESTS
 	},
 	{
 		name: 'Weapons',

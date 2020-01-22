@@ -1,2 +1,36 @@
 import { Soundbyte} from '@app/classes/soundbyte';
 import { SoundbyteArray } from '@app/classes/soundbytearray';
+
+const Alarms: Soundbyte[] = [
+	{
+		sound placeholder
+	},
+	{
+		sound placeholder
+	},
+];
+const Ones: Soundbyte[] = [
+	{
+		sound placeholder
+	},
+	{
+		sound placeholder
+	},
+	{
+		sound placeholder
+	},
+	{
+		sound placeholder
+	},
+];
+const Weapons: Soundbyte[] = [
+	{
+		sound placeholder
+	},
+	{
+		sound placeholder
+	},
+	{
+		sound placeholder
+	},
+];
