@@ -19,8 +19,12 @@
 			<button type="button" (click)="this._soundService.stop(sound)">Stop</button>
 		</div>
 		<div>
-			Loop <input type="checkbox" [checked]="sound.loopSetting" (change)="this._soundService.toggleLoop(sound)" />
+			Loop <input type="checkbox" [checked]="sound.loopSetting" (change)="this._soundService.toggleLoop(sound)" /><br />
 			<!---<button type="button" (click)="this._soundService.fadeAttr(sound, 'playbackRate', 0.4, 2)">Slo-mo</button>-->
+			<div *ngIf="sound.audio">
+				Volume: <input  [(ngModel)]="sound.audio.volume" />
+				Speed: <input  [(ngModel)]="sound.audio.playbackRate" />
+			</div>
 		</div>
 		
 		

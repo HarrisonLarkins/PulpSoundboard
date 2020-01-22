@@ -58,7 +58,8 @@ export class SoundService {
 	*/
 	stop(soundbyte: Soundbyte){
 		if(soundbyte.audio) {
-			soundbyte.audio.pause();
+      soundbyte.audio.pause();
+      soundbyte.audio = null;
 		}
 	}
 	

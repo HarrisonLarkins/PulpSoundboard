@@ -23,3 +23,7 @@ button {
 .stopButton {
 	height: 50px;
 }
+
+input {
+  width: 20px;
+}
